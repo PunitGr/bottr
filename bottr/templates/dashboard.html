@@ -19,7 +19,7 @@
         var page = 0;
         init();
         function init() {
-            $.get('http://localhost:8000/api/v1/dashboard/', function(response) {
+            $.get('https://bottr123.herokuapp.com/api/v1/dashboard/', function(response) {
                 data = JSON.parse(response);
                 if (data.length) {
                     $(".tweet-wrapper").empty();
@@ -27,8 +27,7 @@
                     
                     appendData();
 
-                    var loadPage = `<a onclick="loadMore()" class="button load-btn">Load More</a>`;
-                    $(loadPage).appendTo(".container");
+                    
                 }
             });
             
@@ -55,6 +54,8 @@
                     $(item).appendTo(".tweet-wrapper");
                 }
                 page += 1;
+                var loadPage = `<a onclick="loadMore()" class="button load-btn">Load More</a>`;
+                $(loadPage).appendTo(".container");
             }
             if (page == 20) {
                 $(".container").remove(".load-btn");

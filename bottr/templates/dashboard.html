@@ -27,7 +27,8 @@
                     
                     appendData();
 
-                    
+                    var loadPage = `<a onclick="loadMore()" class="button load-btn">Load More</a>`;
+                    $(loadPage).appendTo(".container");
                 }
             });
             
@@ -54,8 +55,6 @@
                     $(item).appendTo(".tweet-wrapper");
                 }
                 page += 1;
-                var loadPage = `<a onclick="loadMore()" class="button load-btn">Load More</a>`;
-                $(loadPage).appendTo(".container");
             }
             if (page == 20) {
                 $(".load-btn").remove();

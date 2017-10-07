@@ -14,6 +14,9 @@ import os
 import dotenv
 import dj_database_url
 
+ON_HEROKU = os.environ.get('ON_HEROKU')
+HEROKU_SERVER = os.environ.get('HEROKU_SERVER')
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -94,11 +97,10 @@ DATABASES = {
     }
 }
 
-# Database
-# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-# db_from_env = dj_database_url.config()
-# DATABASES['default'].update(db_from_env)
-# DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+if ON_HEROKU:
+    db_from_env = dj_database_url.config()
+    DATABASES['default'].update(db_from_env)
+    DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 ALLOWED_HOSTS = ['*']
 

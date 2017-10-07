@@ -1,0 +1,92 @@
+body {
+    font-family: 'Varela Round', sans-serif;
+    background-color: #F6F6F6;
+}
+
+.container {
+    display: flex;
+    max-width: 800px;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.tweet-wrapper {
+    display: flex;
+    margin: 40px auto 20px;
+    max-width: 600px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+}
+
+h3 {
+    color: #555;
+}
+
+.tweet {
+    width: 100%;
+    padding: 12px 15px;
+    box-shadow: 0 6px 15px rgba(36,37,38,0.08);
+    border-radius: 16px;
+    background-color: #fff;
+    margin-bottom: 20px;
+    color: #555;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.tweet:hover, .tweet:focus {
+    box-shadow: 5px 12px 20px rgba(36,37,38,0.13);
+}
+
+.tweet > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.tweet p {
+    margin-top: 12px;
+}
+
+.round-image {
+    width: 40px;
+    height: 40px;
+    display: block;
+    background-size: cover;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 8px;
+}
+
+.button {
+    width: 120px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+    border-radius: 3px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    padding: 12px;
+    cursor: pointer;
+    margin-bottom: 40px;
+}
+
+.signup-btn {
+    width: 200px;
+}
+
+.update-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}

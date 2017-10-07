@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="tweet-wrapper">Loading...</div>
+    </div>
+        
+    <a onclick="init()" class="update-btn button">Update View</a>
+    <script>
+        var data = [];
+        var page = 0;
+        init();
+        function init() {
+            $.get('http://localhost:8000/api/v1/dashboard/', function(response) {
+                data = JSON.parse(response);
+                if (data.length) {
+                    $(".tweet-wrapper").empty();
+                    $(".container").remove(".load-btn");
+                    
+                    appendData();
+
+                    var loadPage = `<a onclick="loadMore()" class="button load-btn">Load More</a>`;
+                    $(loadPage).appendTo(".container");
+                }
+            });
+            
+        }
+
+        function loadMore() {
+            appendData();
+        }
+
+        function appendData() {
+            if (data.length) {
+                for (var i=page*5; i<(page*5)+5; i++) {
+                    let userData = data[i];
+                    console.log(userData);
+
+                    var item = `
+                        <a href="/tweet/${userData.id_str}" class="tweet">
+                            <div>
+                                <span class="round-image" style="background-image: url(${userData.user.profile_image_url})"></span>
+                                <h3>@${userData.user.screen_name}</h3>
+                            </div>
+                            <p>${userData.text}</p>
+                        </a>
+                    `;
+                    $(item).appendTo(".tweet-wrapper");
+                }
+                page += 1;
+            }
+            if (page == 20) {
+                $(".container").remove(".load-btn");
+            }
+        }
+    </script>
+    </div>
+</body>
+</html>

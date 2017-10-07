@@ -87,6 +87,12 @@ h3 {
 
 .update-btn {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 10px;
+    right: 10px;
+}
+
+@media all and (max-width: 767px) {
+    .container {
+        padding: 15px;
+    }
 }

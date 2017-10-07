@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dashboard</title>
     <link rel="stylesheet" href="/static/css/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
@@ -19,7 +20,7 @@
         var page = 0;
         init();
         function init() {
-            $.get('https://bottr123.herokuapp.com/api/v1/dashboard/', function(response) {
+            $.get('/api/v1/dashboard/', function(response) {
                 data = JSON.parse(response);
                 if (data.length) {
                     $(".tweet-wrapper").empty();

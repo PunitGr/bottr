@@ -18,5 +18,11 @@ workon bottr
 (bottr)$ pip install -r requirements.txt
 ```
 
+## SyncDb
+
+```
+./manage.py migrate syncdb
+```
+
 ## Start django server
 Run `./manage.py runserver`

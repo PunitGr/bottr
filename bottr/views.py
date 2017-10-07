@@ -30,7 +30,7 @@ def home(request):
 def dash(request):
     if request.user.is_authenticated():
         return render(request, 'dashboard.html')
-    return redirect('index.html')
+    return redirect('home')
 
 
 def dashboard(request):

@@ -35,7 +35,7 @@ def dash(request):
 
 def dashboard(request):
     if request.user.is_authenticated():
-        url = 'https://api.twitter.com/1.1/statuses/home_timeline.json?%s&count=10' % (request.user.username)
+        url = 'https://api.twitter.com/1.1/statuses/home_timeline.json?%s&count=100' % (request.user.username)
         response = requests.get(url, auth=authenticate(request.user))
         return HttpResponse(json.dumps(response.json()))
     return redirect('home')

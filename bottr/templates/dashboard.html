@@ -23,7 +23,7 @@
                 data = JSON.parse(response);
                 if (data.length) {
                     $(".tweet-wrapper").empty();
-                    $(".container").remove(".load-btn");
+                    $(".load-btn").remove();
                     
                     appendData();
 
@@ -45,7 +45,7 @@
                     var item = `
                         <a href="/tweet/${userData.id_str}" class="tweet">
                             <div>
-                                <span class="round-image" style="background-image: url(${userData.user.profile_image_url})"></span>
+                                <span class="round-image" style="background-image: url(${userData.user.profile_image_url_https})"></span>
                                 <h3>@${userData.user.screen_name}</h3>
                             </div>
                             <p>${userData.text}</p>
@@ -58,7 +58,7 @@
                 $(loadPage).appendTo(".container");
             }
             if (page == 20) {
-                $(".container").remove(".load-btn");
+                $(".load-btn").remove();
             }
         }
     </script>
